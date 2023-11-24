@@ -32,3 +32,15 @@ test('clicking on "About" button in the selector switches to About component', (
   const aboutComponent = screen.getByTestId('about');
   expect(aboutComponent).toBeInTheDocument();
 });
+
+test('clicking on "Form" button in the selector switches to Form component', () => {
+  render(<App />);
+
+  const formButton = screen.getByText(/Show Form/i);
+  expect(formButton).toBeInTheDocument();
+
+  fireEvent.click(formButton);
+
+  const formComponent = screen.getByTestId('form');
+  expect(formComponent).toBeInTheDocument();
+});
