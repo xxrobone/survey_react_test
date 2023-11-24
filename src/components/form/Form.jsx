@@ -70,7 +70,7 @@ const Form = () => {
   };
 
   return (
-    <div>
+    <div data-testid='form'>
       {checkResult && (
         <section>
           <h2>Result:</h2>
@@ -145,7 +145,7 @@ const Form = () => {
           />
         </div>
 
-        <p style={{color: 'pink'}}>Your information -</p>
+        <p style={{ color: 'pink' }}>Your information -</p>
         <p>
           {' '}
           Gender: {gender} & age: {age ? age : ''}
