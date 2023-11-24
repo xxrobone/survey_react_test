@@ -1,0 +1,33 @@
+.selector {
+    position: relative;
+    margin: 1rem 0;
+    padding: 0.5rem 0;
+    height: fit-content;
+    z-index: 2;
+    display: flex;
+    justify-content: center;
+}
+
+.selector button {
+    overflow: hidden;
+    height: 48px;
+    width: 140px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: all 0.8s ease;
+    position: relative;
+    color: #fff;
+    background-color: #232428;
+    border: 2px solid white;
+    margin: 0 1rem;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px,
+      rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
+    cursor: pointer;
+    pointer-events: auto;
+    transition: all 0.3s ease;
+  }
+
+  .selector button:hover {
+    border: 2px solid #e66ea0;
+  }
