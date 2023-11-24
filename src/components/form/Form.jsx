@@ -24,21 +24,21 @@ const Form = () => {
 
   const handleAdd = (e) => {
     e.preventDefault();
-    if (gender === 'Male') {
+    if (gender === 'male') {
       setTotalMen((prev) => prev + 1);
       setTotalAgeMen((prev) => prev + age);
     }
-    if (gender === 'Female') {
+    if (gender === 'female') {
       setTotalWomen((prev) => prev + 1);
       setTotalAgeWomen((prev) => prev + age);
     }
-    if (gender === 'Other') {
+    if (gender === 'other') {
       setTotalOther((prev) => prev + 1);
       setTotalAgeOther((prev) => prev + age);
     }
-    console.log(
-      `ages added so far: men: ${totalMen} with average age of ${totalAgeMen}, women: ${totalWomen} with average age of ${totalAgeWomen}, others: ${totalOther} with average age of ${totalAgeOther}`
-    );
+    /* console.log(
+      `ages added so far: Men: ${totalMen} with total age of ${totalAgeMen}, Women: ${totalWomen} with total age of ${totalAgeWomen}, Others: ${totalOther} with average age of ${totalAgeOther}`
+    ); */
     setTimeout(() => {
       setGender('');
       setAge(null);
@@ -47,9 +47,9 @@ const Form = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log(
+    /*  console.log(
       ` Submitted or result: men: ${totalMen} with average age of ${totalAgeMen}, women: ${totalWomen} with average age of ${totalAgeWomen}, others: ${totalOther} with average age of ${totalAgeOther} `
-    );
+    ); */
     setTimeout(() => {
       setCheckResult(true);
     }, 300);
@@ -70,30 +70,28 @@ const Form = () => {
   };
 
   return (
-    <div data-testid='form'>
+    <div>
       {checkResult && (
         <section>
           <h2>Result:</h2>
           <ul>
-            <li>
+            <li data-testid='listitem'>
               <h4>
-                Total amount of Women: {totalWomen} <br /> with and average age
-                of{' '}
+                Total amount of Women: {totalWomen} - with an average age of{' '}
                 {totalWomen === 0
                   ? '0'
                   : countAverageAge(totalWomen, totalAgeWomen)}
               </h4>
             </li>
-            <li>
+            <li data-testid='listitem'>
               <h4>
-                Total amount of Men: {totalMen} <br /> with and average age of{' '}
+                Total amount of Men: {totalMen} - with an average age of{' '}
                 {totalMen === 0 ? '0' : countAverageAge(totalMen, totalAgeMen)}
               </h4>
             </li>
-            <li>
+            <li data-testid='listitem'>
               <h4>
-                Total amount of Other: {totalOther} <br /> with and average age
-                of{' '}
+                Total amount of Other: {totalOther} - with an average age of{' '}
                 {totalOther === 0
                   ? '0'
                   : countAverageAge(totalOther, totalAgeOther)}
@@ -105,33 +103,44 @@ const Form = () => {
           </button>
         </section>
       )}
-      <form onSubmit={handleSubmit} onReset={handleReset}>
+      <form onSubmit={handleSubmit} onReset={handleReset} data-testid='form'>
         <h2>Select gender</h2>
         <div className='radio-wrapper'>
-          <input
-            type='radio'
-            value='Male'
-            name='gender'
-            checked={gender === 'Male'}
-            onChange={onOptionChange}
-          />
-          <label htmlFor='Male'>Male</label>
-          <input
-            type='radio'
-            value='Female'
-            name='gender'
-            checked={gender === 'Female'}
-            onChange={onOptionChange}
-          />
-          <label htmlFor='Female'>Female</label>
-          <input
-            type='radio'
-            value='Other'
-            name='gender'
-            checked={gender === 'Other'}
-            onChange={onOptionChange}
-          />
-          <label htmlFor='Other'>Other</label>
+          <label htmlFor='male'>
+            <input
+              type='radio'
+              value='male'
+              id='male'
+              name='gender'
+              checked={gender === 'male'}
+              onChange={onOptionChange}
+            />
+            male
+          </label>
+
+          <label htmlFor='female'>
+            <input
+              type='radio'
+              id='female'
+              value='female'
+              name='gender'
+              checked={gender === 'female'}
+              onChange={onOptionChange}
+            />
+            female
+          </label>
+
+          <label htmlFor='other'>
+            <input
+              type='radio'
+              id='other'
+              value='other'
+              name='gender'
+              checked={gender === 'other'}
+              onChange={onOptionChange}
+            />
+            other
+          </label>
         </div>
 
         <div className='input-wrapper'>
@@ -154,7 +163,7 @@ const Form = () => {
         <button onClick={handleAdd}>Add +</button>
         <p>Check result of average ages of genders</p>
         {!checkResult ? (
-          <button type='submit'>Check result</button>
+          <button type='submit'>Submit</button>
         ) : (
           <button type='reset'>Reset</button>
         )}

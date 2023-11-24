@@ -10,7 +10,7 @@ form {
   align-items: center;
   justify-content: flex-start;
   background-color: rgba(0, 0, 0, 0.225);
-  pointer-events: none;
+  pointer-events: auto;
   z-index: 1;
 }
 
@@ -64,6 +64,7 @@ form button {
 
 label {
   filter: drop-shadow(2px 2px 4px rgb(13, 158, 146));
+  pointer-events: auto;
 }
 
 p {

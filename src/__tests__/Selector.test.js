@@ -1,32 +1,29 @@
 import { render, screen, fireEvent } from '@testing-library/react';
-import Selector
-    from '../components/selector/Selector';
+import Selector from '../components/selector/Selector';
 
-describe('Selector', () => {
-  it('renders the selector with buttons', () => {
-    render(<Selector />);
+test('renders the selector with buttons', () => {
+  render(<Selector />);
 
-    const selectorElement = screen.getByTestId('selector');
-    expect(selectorElement).toBeInTheDocument();
+  const selectorElement = screen.getByTestId('selector');
+  expect(selectorElement).toBeInTheDocument();
 
-    const formButton = screen.getByText(/Show Form/i);
-    expect(formButton).toBeInTheDocument();
+  const formButton = screen.getByText(/Show Form/i);
+  expect(formButton).toBeInTheDocument();
 
-    const aboutButton = screen.getByText(/Show About/i);
-    expect(aboutButton).toBeInTheDocument();
-  });
+  const aboutButton = screen.getByText(/Show About/i);
+  expect(aboutButton).toBeInTheDocument();
+});
 
-  it('calls onSelect callback when buttons are clicked', () => {
-    const mockOnSelect = jest.fn();
-    render(<Selector onSelect={mockOnSelect} />);
+test('calls onSelect callback when buttons are clicked', () => {
+  const mockOnSelect = jest.fn();
+  render(<Selector onSelect={mockOnSelect} />);
 
-    const formButton = screen.getByText(/Show Form/i);
-    const aboutButton = screen.getByText(/Show About/i);
+  const formButton = screen.getByText(/Show Form/i);
+  const aboutButton = screen.getByText(/Show About/i);
 
-    fireEvent.click(formButton);
-    expect(mockOnSelect).toHaveBeenCalledWith('form');
+  fireEvent.click(formButton);
+  expect(mockOnSelect).toHaveBeenCalledWith('form');
 
-    fireEvent.click(aboutButton);
-    expect(mockOnSelect).toHaveBeenCalledWith('about');
-  });
+  fireEvent.click(aboutButton);
+  expect(mockOnSelect).toHaveBeenCalledWith('about');
 });
