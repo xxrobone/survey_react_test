@@ -3,8 +3,11 @@
 ## This is a Demographic Age Survey, it's built with react using tests 
 
 The functionality is thru a form with 3 radio buttons to choose gender from, and an input for adding age
+<br/>
 A button to add more people, gender and age, on add the form inputs should be reset but not the states needed to do the calculation
+<br/>
 A submit button for seeing the result after adding the amount of people needed for the current survey (own choice)
+<br/>
 After submit the form and states should be reset
 
 While choosing it should show the gender and age on screen in text
