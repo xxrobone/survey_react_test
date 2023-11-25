@@ -38,8 +38,8 @@ Components:
 
 Util:
     
-    - Count average age
-    From user inputs (kept in state) which should be triggered on submitting the form to show the results on screen
+    - Count average age - function
+    Should count the average age
 
 Keep track of:
         total amount of males 
