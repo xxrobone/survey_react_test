@@ -10,8 +10,8 @@ import Form from '../components/form/Form';
 test('renders the form with testid "form"', () => {
   render(<Form />);
 
-  const formElement = screen.getByTestId('form');
-  expect(formElement).toBeInTheDocument();
+  const formElement = screen.queryByTestId('form');
+expect(formElement).toBeInTheDocument();
 });
 
 test('renders three radio buttons for gender selection', () => {
