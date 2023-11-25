@@ -69,5 +69,11 @@ npm run start
 npm run test
 ```
 
+# PREVIEW
+    This is just to help out for the process
+### Survey App 
+<img src="assets/survey.gif" alt="Project image" width="150">
+
+
 Hope its not too hard and understandable
 Lets go! 😊
